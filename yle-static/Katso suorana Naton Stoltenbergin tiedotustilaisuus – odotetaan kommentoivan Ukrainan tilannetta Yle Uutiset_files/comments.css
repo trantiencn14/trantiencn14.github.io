@@ -1,0 +1,565 @@
+@font-face {
+  font-family: 'Comments';
+  src: url('../fonts/font.eot');
+  src: url('../fonts/font.eot?#iefix') format('embedded-opentype'), url('../fonts/font.woff') format('woff'), url('../fonts/font.ttf') format('truetype'), url('../fonts/font.svg#Glyphter') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+#yle-comments-plugin {
+  --color-background: #ffffff;
+  --color-background-2: #f0f4f8;
+  --color-green: #2bbd89;
+  --color-text: #717583;
+  --color-title: var(--color-green);
+  --color-link: #077cb3;
+  --color-success: #008000;
+  --color-alert: #ff0000;
+  --color-bodyText: black;
+  --color-icon-editor: #00b4c8;
+}
+@media (prefers-color-scheme: dark) {
+  #yle-comments-plugin:not(.disable-dark-theme) {
+    --color-background: #28282e;
+    --color-background-2: #1b1e20;
+    --color-green: #2bbd89;
+    --color-text: #989ba7;
+    --color-title: var(--color-green);
+    --color-link: #0899dc;
+    --color-success: #008000;
+    --color-alert: #ff5252;
+    --color-bodyText: #ffffff;
+    --color-icon-editor: #ffffff;
+  }
+}
+#yle-comments-plugin.force-dark-theme {
+  --color-background: #28282e;
+  --color-background-2: #1b1e20;
+  --color-green: #2bbd89;
+  --color-text: #989ba7;
+  --color-title: var(--color-green);
+  --color-link: #0899dc;
+  --color-success: #008000;
+  --color-alert: #ff5252;
+  --color-bodyText: #ffffff;
+  --color-icon-editor: #ffffff;
+}
+#yle-comments-plugin {
+  background-color: var(--color-background);
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: var(--color-bodyText);
+}
+#yle-comments-plugin * {
+  box-sizing: border-box;
+}
+@media all and (min-width: 768px) {
+  #yle-comments-plugin {
+    width: 620px;
+    margin: 0 auto;
+  }
+}
+#yle-comments-plugin div,
+#yle-comments-plugin input,
+#yle-comments-plugin textarea {
+  font-weight: 300;
+}
+#yle-comments-plugin input,
+#yle-comments-plugin textarea {
+  line-height: 1.4;
+  font-family: "Open Sans", sans-serif;
+}
+#yle-comments-plugin button,
+#yle-comments-plugin input,
+#yle-comments-plugin textarea {
+  font-size: 14px;
+}
+#yle-comments-plugin a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+#yle-comments-plugin h1,
+#yle-comments-plugin h2,
+#yle-comments-plugin h3,
+#yle-comments-plugin h4,
+#yle-comments-plugin ul,
+#yle-comments-plugin li {
+  font-weight: 400;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+#yle-comments-plugin .yc__account-banned {
+  color: var(--color-alert);
+  line-height: 1.4;
+  text-align: center;
+}
+#yle-comments-plugin .yc__submitted-comment-view {
+  display: none;
+}
+#yle-comments-plugin button {
+  background-color: var(--color-link);
+  color: white;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+}
+#yle-comments-plugin button,
+#yle-comments-plugin button:focus,
+#yle-comments-plugin button:active {
+  outline-offset: 0;
+  outline: none;
+  text-decoration: none;
+  text-transform: none;
+}
+#yle-comments-plugin .yc__center {
+  text-align: center;
+}
+#yle-comments-plugin .yc__center .yc__comments_load-comments-button {
+  border-radius: 3px;
+  width: 100%;
+  margin-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 0.875em;
+}
+#yle-comments-plugin .yc__center .yc__comments_load-comments-button[disabled] {
+  display: none;
+}
+#yle-comments-plugin .yc__user-mode-link {
+  background: none;
+  color: var(--color-link);
+  padding: 0;
+  float: right;
+}
+#yle-comments-plugin .yc__user-mode-link-login-required {
+  background: none;
+  color: var(--color-link);
+  padding: 0;
+  font-size: 0.875em;
+}
+#yle-comments-plugin .yc__reverse-comments-link {
+  background: none;
+  color: var(--color-link);
+  padding: 0;
+}
+#yle-comments-plugin .yc__moderate-comment__link {
+  display: block;
+  float: right;
+  font-size: 0.875em;
+  cursor: pointer;
+}
+#yle-comments-plugin .yc__change-nick-form {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.58;
+  padding-bottom: 20px;
+}
+#yle-comments-plugin .yc__change-nick-form__heading {
+  font-size: 16px;
+  font-weight: 400;
+}
+#yle-comments-plugin .yc__change-nick-form__info {
+  margin-bottom: 12px;
+}
+#yle-comments-plugin .yc__change-nick-form__error {
+  color: var(--color-alert);
+  margin-bottom: 6px;
+}
+#yle-comments-plugin .yc__change-nick-form__input {
+  margin-right: 6px;
+  width: 280px;
+  border: 1px solid #cccccc;
+  padding: 5px 5px 7px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+#yle-comments-plugin .yc__change-nick-form__submit {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 40px;
+  font-size: 14px;
+}
+#yle-comments-plugin .yc__comment__action-buttons {
+  padding: 10px 0;
+}
+#yle-comments-plugin .yc__topic_comments__report-abuse {
+  font-size: 0.75em;
+  background: none;
+  color: var(--color-bodyText);
+  padding: 0;
+}
+#yle-comments-plugin .yc__topic_comments__report-abuse::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0043';
+  margin-right: 4px;
+  position: relative;
+  top: 2px;
+}
+#yle-comments-plugin .yc__no-border {
+  border: 0 !important;
+}
+#yle-comments-plugin .yc__topic-locked {
+  color: var(--color-alert);
+  margin: 1em 0;
+}
+#yle-comments-plugin .yc__reveal-comments {
+  text-align: center;
+}
+#yle-comments-plugin .yc__reveal-comments__link {
+  border-radius: 3px;
+  background-color: var(--color-link);
+  min-width: 220px;
+  font-size: 0.875em;
+  line-height: 1.4;
+  margin: 1em auto 1em;
+  padding: 14px 20px;
+  border: 0 none;
+  color: white;
+  cursor: pointer;
+}
+#yle-comments-plugin .yc__reveal-comments__count::before {
+  margin: 0 4px 0 12px;
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0045';
+  vertical-align: baseline;
+}
+#yle-comments-plugin .yc__comments-container .yc__comments-container {
+  margin-top: 27px;
+  margin-left: 0;
+  padding-left: 21px;
+  border-left: 5px solid #e0e8f0;
+  border-bottom: none;
+}
+#yle-comments-plugin .yc__comments-container .yc__like-button {
+  background: none;
+  color: var(--color-bodyText);
+  padding: 0;
+  margin-right: 10px;
+}
+#yle-comments-plugin .yc__comments-container .yc__like-button::before {
+  margin-right: 6px;
+  font-size: 16px;
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0046';
+}
+#yle-comments-plugin .yc__comments-container .yc__like-button.yc__like-button-liked {
+  color: var(--color-link);
+  font-weight: bold;
+}
+#yle-comments-plugin .yc__comments-container .yc__like-button.yc__like-button-liked::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0047';
+}
+#yle-comments-plugin .yc__comments-container .yc__reply-button {
+  font-size: 0.875em;
+  background: none;
+  color: var(--color-link);
+  padding: 0;
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form {
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 20px 20px;
+  background-color: var(--color-background-2);
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form__close-form {
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form__close-form::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0042';
+  font-size: 24px;
+  color: var(--color-bodyText);
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form__headline {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 23px;
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form__content {
+  background-color: var(--color-background);
+  color: var(--color-bodyText);
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form__submit-notice-link {
+  display: block;
+  margin: 20px auto 0;
+  width: 186px;
+  height: 40px;
+  font-size: 14px;
+}
+#yle-comments-plugin .yc__comments-container .yc__new-notice-form .yc__form-validation-error {
+  color: var(--color-alert);
+  display: block;
+  margin-left: 0;
+  margin-bottom: 25px;
+}
+#yle-comments-plugin .yc__comment-submission-info {
+  color: var(--color-green);
+  display: block;
+  margin-left: 0;
+  margin-top: 25px;
+  font-weight: 500;
+  font-size: 0.875em;
+}
+#yle-comments-plugin .yc__comments-policy {
+  text-align: center;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  font-size: 0.875em;
+  line-height: 1.4;
+}
+#yle-comments-plugin .yc__comment-controls {
+  margin: 50px 0 20px;
+}
+#yle-comments-plugin .yc__new-comment-form {
+  margin-bottom: 30px;
+}
+#yle-comments-plugin .yc__new-comment-form .yc__author {
+  background-color: var(--color-background-2);
+  color: var(--color-bodyText);
+  width: 50%;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 19px;
+  padding: 10px 10px 10px 35px;
+  font-size: 16px;
+}
+#yle-comments-plugin .yc__new-comment-form__authenticated-user::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0041';
+  margin-right: 10px;
+  width: 50px;
+  text-align: center;
+  color: var(--color-bodyText);
+  font-size: 1.25em;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -5px;
+}
+#yle-comments-plugin .yc__new-comment-form__content {
+  background-color: var(--color-background-2);
+  color: var(--color-bodyText);
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  resize: none;
+  height: 120px;
+}
+#yle-comments-plugin .yc__new-comment-form__submit {
+  min-width: 220px;
+  font-size: 0.875em;
+  line-height: 1.4;
+  margin: 1em auto 1em;
+  padding: 14px 20px;
+  border: 0 none;
+  color: white;
+  cursor: pointer;
+  display: block;
+}
+#yle-comments-plugin .yc__new-comment-form__login {
+  text-align: center;
+}
+#yle-comments-plugin .yc__new-comment-form__close {
+  float: right;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  padding: 0;
+}
+#yle-comments-plugin .yc__new-comment-form__close::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0042';
+  font-size: 24px;
+  color: var(--color-bodyText);
+}
+#yle-comments-plugin .yc__new-comment-form .yc__form-validation-error {
+  text-align: center;
+  color: var(--color-alert);
+  display: block;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+#yle-comments-plugin .yc__new-comment-form .yc__comment-submission-info {
+  color: var(--color-green);
+  display: block;
+  margin-left: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#yle-comments-plugin .yc__topic-comments__item {
+  border-top: 1px solid #ededed;
+  padding: 17px 0;
+}
+#yle-comments-plugin .yc__topic-comments__item:first-child {
+  border-top: 0;
+}
+#yle-comments-plugin .yc__topic-comments__info {
+  clear: both;
+  font-size: 0.875em;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+#yle-comments-plugin .yc__topic-comments__info .yc__comment-author {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--color-bodyText);
+}
+#yle-comments-plugin .yc__topic-comments__info .yc__authenticated-user::before,
+#yle-comments-plugin .yc__topic-comments__info .yc__moderator-author::before,
+#yle-comments-plugin .yc__topic-comments__info .yc__trusted-comment-author::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0041';
+  font-size: 14px;
+  margin-right: 10px;
+  margin-top: 2px;
+}
+#yle-comments-plugin .yc__topic-comments__info .yc__moderator-author::after,
+#yle-comments-plugin .yc__topic-comments__info .yc__trusted-comment-author::after {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0044';
+  color: var(--color-icon-editor);
+  margin: 0 5px 0 9px;
+  font-size: 16px;
+}
+#yle-comments-plugin .yc__topic-comments__info .yc__comment-created-at {
+  color: var(--color-text);
+  margin-left: 1em;
+  margin-right: 1em;
+}
+#yle-comments-plugin .yc__topic-comments__content {
+  white-space: pre-wrap;
+  line-height: 1.4;
+  margin-bottom: 14px;
+  font-size: 1em;
+  font-weight: 300;
+}
+#yle-comments-plugin .yc__comments-window__headline {
+  font-size: 1.5em;
+  color: var(--color-bodyText);
+  margin-top: 30px;
+  padding-bottom: 5px;
+}
+#yle-comments-plugin .yc__comments-window__action-links {
+  text-align: right;
+  float: right;
+  margin-top: -30px;
+  font-size: 0.875em;
+}
+#yle-comments-plugin .yc__comments-window__action-links .yc__reverse-comments-link-top {
+  color: var(--color-bodyText);
+  font-weight: 500;
+}
+#yle-comments-plugin .yc__comments-window__action-links::before {
+  display: inline-block;
+  font-family: 'Comments';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\0048';
+  position: relative;
+  left: -8px;
+}
+#yle-comments-plugin ul {
+  list-style-type: none;
+}
+#yle-comments-plugin ul li h3 {
+  color: var(--color-text);
+  margin-top: 0;
+  text-decoration: none;
+}
+#yle-comments-plugin ul li .yc__comment-notice-link {
+  color: var(--color-link);
+  text-align: center;
+  margin-top: 40px;
+}
+#yle-comments-plugin ul li .yc__notice-submitted-message {
+  color: var(--color-success);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
