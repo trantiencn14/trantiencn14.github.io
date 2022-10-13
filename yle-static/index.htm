@@ -5079,6 +5079,41 @@
                             class="sc-bnVMcY eyBvcC share-container"
                             data-testid="share-container"
                           ></div>
+                          <div
+                            style="
+                              position: relative;
+                              padding-bottom: 67.5%;
+                              height: 0;
+                              margin: 10px 0;
+                              overflow: hidden;
+                            "
+                            id="frame"
+                          >
+                          <script>
+                            window.onmessage = function (e) {
+                              if (e.data) {
+                                var frame = document.getElementById("frame");
+                                var ratio = ((e.data/500)*100).toPrecision(4) + '%'
+                                frame.style.height = e.data.height + "px";
+                                console.log(e.data)
+                              }
+                            };
+                          </script>
+                            <iframe
+                              id="iframe"
+                              style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 8px;
+                              "
+                              onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+                              src="http://localhost:3000/widgets/article?url=https%3A%2F%2Fyle.fi%2Fuutiset%2F3-12314941"
+                            >
+                            </iframe>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -10377,21 +10412,5 @@
       id="userreport-launcher-script"
       async=""
     ></script>
-    <iframe
-      style="
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        top: -1000px;
-        left: -1000px;
-        visibility: hidden;
-      "
-      tabindex="-1"
-      title="Empty"
-      aria-hidden="true"
-      src="Katso%20suorana%20Naton%20Stoltenbergin%20tiedotustilaisuus%20%E2%80%93%20odotetaan%20kommentoivan%20Ukrainan%20tilannetta%20Yle%20Uutiset_files/server.htm"
-      id="userreport-tag-system"
-    ></iframe>
-    
   </body>
 </html>
